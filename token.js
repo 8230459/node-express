@@ -5,7 +5,7 @@ function createToken(obj, timeout) {
   var payload = {
     data: obj,//payload
     created: parseInt(Date.now() / 1000),//token生成的时间的，单位秒
-    exp: parseInt(timeout) || 10000//token有效期，单位秒
+    exp: parseInt(timeout) || 3600 * 12 * 7//token有效期，单位秒，与前端保存登录标识cookie的有效期须一致
   };
   //编码 payload
   var payloadStr = Buffer.from(JSON.stringify(payload)).toString("base64")
@@ -48,4 +48,10 @@ function checkToken(token) {
   return false;
 }
 
-module.exports = exports = {createToken, checkToken};
+function checkCallback(req, res, callback) {
+  const _token = req.headers.authorization
+  if (_token && checkToken(_token)) callback()
+  else res.send('Sorry, You are not authorized!')
+}
+
+module.exports = exports = {createToken, checkToken, checkCallback};

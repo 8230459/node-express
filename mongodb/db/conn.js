@@ -1,3 +1,10 @@
+/**
+ * Created by Andy Wang.
+ * User: 8230459@qq.com
+ * Date: 2018/4/26
+ * Time: 16:31
+ */
+
 //连接数据库
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/sys');

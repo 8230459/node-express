@@ -31,6 +31,7 @@ app.use(bodyParser.json()); //解析请求的JSON
 app.use(bodyParser.urlencoded({extended: false})); //解析请求的FORM
 app.use(express.static(path.join(__dirname, 'public'))); //指定静态资源在public下
 
+
 const ALLOW_ORIGIN = 'http://127.0.0.1:8000'
 
 app.all('*', function (req, res, next) {
