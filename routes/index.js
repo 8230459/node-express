@@ -7,9 +7,9 @@
 
 var home = require('./home');
 var users = require('./users');
-var navigation = require('./navigation');
+var modules = require('./modules');
 module.exports = (app) => {
   app.use('/', home);
   app.use('/users', users);
-  app.use('/navigation', navigation);
+  app.use('/modules', modules);
 }

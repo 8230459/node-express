@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
 });
 
 //用户登录
-router.get('/login', function (req, res, next) {
+router.get('/signIn', function (req, res, next) {
   delete req.query.t
   findOne(req.query, doc => {
     if (doc) {
@@ -42,14 +42,14 @@ router.get('/login', function (req, res, next) {
 });
 
 //退出登录
-router.get('/exit', function (req, res, next) {
+router.get('/signOut', function (req, res, next) {
   const _token = req.cookies.Authorization
   if (_token) res.cookie('Authorization', 'null')
   res.send('Exit Success!')
 });
 
 //注册用户
-router.get('/regist', function (req, res, next) {
+router.get('/signUp', function (req, res, next) {
   let _query = req.query;
   delete _query.t
   add(_query, (doc) => {

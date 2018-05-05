@@ -13,14 +13,15 @@ const schema = new mongoose.Schema(
   {
     title: String,
     index: String,
-    path: String
+    module: String,
+    api: String
   }, {
     versionKey: false
   }
 );
 
 //创建表模型
-const Model = mongoose.model('navigations', schema);
+const Model = mongoose.model('modules', schema);
 
 //操作导航表
 module.exports = {

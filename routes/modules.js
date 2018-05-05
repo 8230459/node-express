@@ -8,7 +8,7 @@
 var express = require("express");
 var {createToken, checkToken, checkCallback} = require("../token");
 
-var {find, findOne, add, del, update} = require("../mongodb/db/navigation");
+var {find, findOne, add, del, update} = require("../mongodb/db/modules");
 var app = express();
 const router = express.Router();
 
